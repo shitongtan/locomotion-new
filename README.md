@@ -29,5 +29,4 @@
 This application was built tested on Samsung Galaxy S7 Edge SM-G935FD. 
 
 Built and developed by Tan Shi Tong, 2020.
-Reference to project by mad-location-manager.
-Copyright (c) 2017 Mad Devs
+###### Reference to project by mad-location-manager. Copyright (c) 2017 Mad Devs
