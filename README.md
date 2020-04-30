@@ -9,7 +9,7 @@
 - Build and run 'app' using Android Studio IDE, on your mobile device emulator (location services must be turned on)
 
 #### This project file contains 2 main directories
-- app - Interfaces, Loggers, Presenters
+- app - MainActivity, Interfaces, Loggers, Presenters
 - locomotion - Commons, Filters (GeoHash, GPSAccKalmanFilter, KalmanFilter, MadgwickAHRS), SensorAux (Calibrator), Services (KalmanLocationService)
 
 #### Tools/Software used:
