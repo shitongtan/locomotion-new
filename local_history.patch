@@ -1,0 +1,108 @@
+Index: app/src/main/java/com/example/lezh1k/sensordatacollector/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/lezh1k/sensordatacollector/MainActivity.java	(date 1583893863309)
++++ app/src/main/java/com/example/lezh1k/sensordatacollector/MainActivity.java	(date 1583893863309)
+@@ -162,7 +162,7 @@
+ 
+ 
+ //        if (mSettings.getBoolean(cPREF_DEBUG,false))
+-            Toast.makeText(MainActivity.this, R.string.debug_create_finished, Toast.LENGTH_SHORT).show();
++//            Toast.makeText(MainActivity.this, R.string.debug_create_finished, Toast.LENGTH_SHORT).show();
+         // we need access to SD-Card
+ //        if (mSettings.getBoolean("mReqSDPermission",true))
+ //            ActivityCompat.requestPermissions(MainActivity.this,
+@@ -177,7 +177,7 @@
+         setupMap(savedInstanceState);
+ 
+ 
+-        mSettings = PreferenceManager.getDefaultSharedPreferences(this);
++//        mSettings = PreferenceManager.getDefaultSharedPreferences(this);
+         mHeightText = (TextView)findViewById(R.id.textViewHeightO);
+         mStartButton = (Button)findViewById(R.id.buttonStart);
+ 
+@@ -569,14 +569,14 @@
+ 
+     ServiceConnection mConnection = new ServiceConnection() {
+         public void onServiceDisconnected(ComponentName name) {
+-            if (mSettings.getBoolean(cPREF_DEBUG,false))
+-                Toast.makeText(MainActivity.this, R.string.debug_service_disconnected, Toast.LENGTH_SHORT).show();
++//            if (mSettings.getBoolean(cPREF_DEBUG,false))
++//                Toast.makeText(MainActivity.this, R.string.debug_service_disconnected, Toast.LENGTH_SHORT).show();
+             mBounded = false;
+             mSensService = null;
+         }
+         public void onServiceConnected(ComponentName name, IBinder service) {
+-            if (mSettings.getBoolean(cPREF_DEBUG,false))
+-                Toast.makeText(MainActivity.this, R.string.debug_service_connected, Toast.LENGTH_SHORT).show();
++//            if (mSettings.getBoolean(cPREF_DEBUG,false))
++//                Toast.makeText(MainActivity.this, R.string.debug_service_connected, Toast.LENGTH_SHORT).show();
+             mBounded = true;
+             SensorService.LocalBinder mLocalBinder = (SensorService.LocalBinder)service;
+             mSensService = mLocalBinder.getServerInstance();
+@@ -729,10 +729,10 @@
+ 
+     // action for start button: starting measurement
+     private void startLogger() {
+-                boolean succ = mSensService.startListeners();
+-                if(succ && mSettings.getBoolean(cPREF_DEBUG,false))
+-                    Toast.makeText(MainActivity.this, R.string.debug_listener_started, Toast.LENGTH_SHORT).show();
+-                else mStatusText.setText(R.string.sensor_register_failed);
++//                boolean succ = mSensService.startListeners();
++//                if(succ && mSettings.getBoolean(cPREF_DEBUG,false))
++//                    Toast.makeText(MainActivity.this, R.string.debug_listener_started, Toast.LENGTH_SHORT).show();
++//                else mStatusText.setText(R.string.sensor_register_failed);
+ //        boolean succ = mSensService.startListeners();
+ //              Log.d("tailor", String.valueOf(succ));
+ //        if(succ && mSettings.getBoolean(cPREF_DEBUG,false))
+@@ -853,27 +853,27 @@
+ //                mStepDailyProgress.setProgressTintList(
+ //                        ColorStateList.valueOf(ContextCompat.getColor(context,R.color.colorPrimaryDark)));
+ //            }
+-//            Float heighttoday = receive.getFloatExtra("Heighttoday",0F);
+-//            mHeightDailyText.setText(String.format(Locale.getDefault(),"%.1f m",heighttoday));
+-//            int dailyheight = Integer.valueOf(mSettings.getString(cPREF_TARGET_HEIGHT, "100"));
+-            // see above
+-//            if (heighttoday < dailyheight && heighttoday >=0 ) {
+-//                // difficult to read, bar color sufficient: mHeightDailyText.setTextColor(ContextCompat.getColor(context, R.color.colorAccent));
+-//                mHeightDailyProgress.setProgress( (int)(100 * heighttoday) / dailyheight );
+-//                mHeightDailyProgress.setProgressTintList(
+-//                        ColorStateList.valueOf(ContextCompat.getColor(context,R.color.colorAccent)));
+-//            }
+-//            else if (heighttoday >= dailyheight){
+-//                // difficult to read, bar color sufficient: mHeightDailyText.setTextColor(ContextCompat.getColor(context,R.color.colorPrimaryDark));
+-//                mHeightDailyProgress.setProgress( 100 );
+-//                mHeightDailyProgress.setProgressTintList(
+-//                        ColorStateList.valueOf(ContextCompat.getColor(context,R.color.colorPrimaryDark)));
+-//            }
+-//            else {
+-//                mHeightDailyProgress.setProgress( 0 );
+-//                mHeightDailyProgress.setProgressTintList(
+-//                        ColorStateList.valueOf(ContextCompat.getColor(context,R.color.colorPrimaryDark)));
+-//            }
++            Float heighttoday = receive.getFloatExtra("Heighttoday",0F);
++            mHeightDailyText.setText(String.format(Locale.getDefault(),"%.1f m",heighttoday));
++            int dailyheight = Integer.valueOf(mSettings.getString(cPREF_TARGET_HEIGHT, "100"));
++//             see above
++            if (heighttoday < dailyheight && heighttoday >=0 ) {
++                // difficult to read, bar color sufficient: mHeightDailyText.setTextColor(ContextCompat.getColor(context, R.color.colorAccent));
++                mHeightDailyProgress.setProgress( (int)(100 * heighttoday) / dailyheight );
++                mHeightDailyProgress.setProgressTintList(
++                        ColorStateList.valueOf(ContextCompat.getColor(context,R.color.colorAccent)));
++            }
++            else if (heighttoday >= dailyheight){
++                // difficult to read, bar color sufficient: mHeightDailyText.setTextColor(ContextCompat.getColor(context,R.color.colorPrimaryDark));
++                mHeightDailyProgress.setProgress( 100 );
++                mHeightDailyProgress.setProgressTintList(
++                        ColorStateList.valueOf(ContextCompat.getColor(context,R.color.colorPrimaryDark)));
++            }
++            else {
++                mHeightDailyProgress.setProgress( 0 );
++                mHeightDailyProgress.setProgressTintList(
++                        ColorStateList.valueOf(ContextCompat.getColor(context,R.color.colorPrimaryDark)));
++            }
+ 
+             // set Start/Stop-Button
+             mRunning = receive.getBooleanExtra("Registered",false);
