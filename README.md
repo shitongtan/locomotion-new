@@ -24,7 +24,7 @@
 - Magnetic Field Sensor
 - Barometer
 
-#### These sensors provide us with data points to improve user localization accuracy.
+#### These sensors provide the app with data points to improve user localization accuracy.
   
 This application was built tested on Samsung Galaxy S7 Edge SM-G935FD. 
 
